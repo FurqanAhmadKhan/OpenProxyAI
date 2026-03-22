@@ -43,16 +43,16 @@ The following models are available through this proxy. Operational status is ver
 | Model Name | Status | Description |
 |------------|--------|-------------|
 | `gpt-4o` | ✅ Operational | GPT-4 Optimized - Latest optimized version |
+| `o3` | ❌ Not Working | O-series model version 3 |
 | `o4-mini` | ✅ Operational | Lightweight O-series model version 4 |
 | `gpt-4.1` | ✅ Operational | GPT-4.1 - Enhanced version |
 | `gpt-4.1-mini` | ✅ Operational | GPT-4.1 Mini - Lightweight version |
+| `gpt-4-turbo` | ❌ Not Working | GPT-4 Turbo - Faster processing |
+| `gpt-4` | ❌ Not Working | GPT-4 - Standard version |
 | `gpt-3.5-turbo` | ✅ Operational | GPT-3.5 Turbo - Fast and efficient |
 | `gpt-3.5-turbo-16k` | ✅ Operational | GPT-3.5 Turbo - Extended context (16k tokens) |
-| `gpt-4-turbo` | ⚠️ Timeout Issues | GPT-4 Turbo - Currently experiencing deployment timeouts |
-| `gpt-4` | ⚠️ Timeout Issues | GPT-4 - Currently experiencing deployment timeouts |
-| `o3` | ⚠️ Timeout Issues | O-series model version 3 - Currently experiencing deployment timeouts |
 
-> Models marked with ⚠️ may be temporarily unavailable. See [test_results.md](test_results.md) for detailed testing information.
+> **Note**: Models marked with ❌ worked in the past but are currently experiencing timeout issues. They may become available again in future updates. See [test_results.md](test_results.md) for detailed testing information.
 
 ---
 
