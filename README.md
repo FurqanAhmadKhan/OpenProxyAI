@@ -6,7 +6,8 @@ A reverse API proxy for accessing ChatGPT models through third-party services. T
 
 > **⚠️ DISCLAIMER**: This project is strictly for educational and testing purposes only. It is not actively maintained and should not be used in production environments. The service may be discontinued at any time without notice.
 
-**Last Updated**: 3/22/2026 5:00 PM Sunday
+**Last Updated**: March 22, 2026 at 5:00 PM (Sunday)  
+**Tested**: March 22, 2026 - See [test_results.md](test_results.md) for current model status
 
 ---
 
@@ -37,19 +38,21 @@ A reverse API proxy for accessing ChatGPT models through third-party services. T
 
 ## 🤖 Supported Models
 
-This proxy supports the following ChatGPT models:
+The following models are available through this proxy. Operational status is verified as of the last update.
 
-| Model Name | Description |
-|------------|-------------|
-| `gpt-4o` | GPT-4 Optimized - Latest optimized version |
-| `o3` | O-series model version 3 |
-| `o4-mini` | Lightweight O-series model version 4 |
-| `gpt-4.1` | GPT-4.1 - Enhanced version |
-| `gpt-4.1-mini` | GPT-4.1 Mini - Lightweight version |
-| `gpt-4-turbo` | GPT-4 Turbo - Faster processing |
-| `gpt-4` | GPT-4 - Standard version |
-| `gpt-3.5-turbo` | GPT-3.5 Turbo - Fast and efficient |
-| `gpt-3.5-turbo-16k` | GPT-3.5 Turbo - Extended context (16k tokens) |
+| Model Name | Status | Description |
+|------------|--------|-------------|
+| `gpt-4o` | ✅ Operational | GPT-4 Optimized - Latest optimized version |
+| `o4-mini` | ✅ Operational | Lightweight O-series model version 4 |
+| `gpt-4.1` | ✅ Operational | GPT-4.1 - Enhanced version |
+| `gpt-4.1-mini` | ✅ Operational | GPT-4.1 Mini - Lightweight version |
+| `gpt-3.5-turbo` | ✅ Operational | GPT-3.5 Turbo - Fast and efficient |
+| `gpt-3.5-turbo-16k` | ✅ Operational | GPT-3.5 Turbo - Extended context (16k tokens) |
+| `gpt-4-turbo` | ⚠️ Timeout Issues | GPT-4 Turbo - Currently experiencing deployment timeouts |
+| `gpt-4` | ⚠️ Timeout Issues | GPT-4 - Currently experiencing deployment timeouts |
+| `o3` | ⚠️ Timeout Issues | O-series model version 3 - Currently experiencing deployment timeouts |
+
+> Models marked with ⚠️ may be temporarily unavailable. See [test_results.md](test_results.md) for detailed testing information.
 
 ---
 
@@ -390,16 +393,25 @@ By using this service, you agree to indemnify and hold harmless the project crea
 
 ## ⚠️ Limitations
 
+### Current Service Status
+
+Based on recent testing (March 22, 2026):
+- 6 out of 9 models are fully operational
+- 3 models (gpt-4, gpt-4-turbo, o3) are experiencing timeout errors
+- Operational models include: gpt-4o, gpt-4.1, gpt-4.1-mini, o4-mini, gpt-3.5-turbo, gpt-3.5-turbo-16k
+
+For detailed test results, see [test_results.md](test_results.md).
+
 ### Known Limitations
 
-1. **Availability**: The service may be unavailable or unreliable at times
-2. **Rate Limits**: Requests may be rate-limited or throttled
-3. **Model Availability**: Not all listed models may be available at all times
-4. **Response Quality**: Response quality may vary from official OpenAI API
-5. **No Streaming**: Streaming responses may not be supported
-6. **Context Length**: Context window sizes may differ from official specifications
-7. **No Authentication**: No user authentication or API key management
-8. **No Guarantees**: No SLA, uptime guarantees, or support commitments
+1. **Availability**: Service uptime depends entirely on third-party infrastructure
+2. **Rate Limits**: Requests may be throttled without warning
+3. **Model Availability**: Some models may timeout or become unavailable
+4. **Response Quality**: May differ from official OpenAI API responses
+5. **No Streaming**: Real-time streaming responses are not supported
+6. **Context Windows**: Actual context limits may vary from official specifications
+7. **No Authentication**: No API key management or user authentication system
+8. **No SLA**: Zero guarantees on uptime, performance, or support
 
 ### Security Considerations
 
@@ -420,21 +432,20 @@ By using this service, you agree to indemnify and hold harmless the project crea
 
 ### Common Issues
 
-**Service Unavailable (503)**
-- The third-party service may be down
-- Try again later or check the original website
+**Service Unavailable (503)**  
+The backend service is down. Wait a few minutes and retry.
 
-**Rate Limit Exceeded (429)**
-- You've made too many requests
-- Wait before making additional requests
+**Rate Limit Exceeded (429)**  
+Too many requests in a short period. Implement exponential backoff in your retry logic.
 
-**Invalid Model Error**
-- Check that the model name is spelled correctly
-- Verify the model is currently supported
+**Timeout Errors (FUNCTION_INVOCATION_TIMEOUT)**  
+Certain models (gpt-4, gpt-4-turbo, o3) are currently experiencing deployment timeouts. Try using alternative models like gpt-4o or gpt-4.1 instead.
 
-**Timeout Errors**
-- The request may be taking too long
-- Try with a shorter prompt or different model
+**Invalid Model Error**  
+Double-check the model name spelling. Refer to the supported models table for exact names.
+
+**Connection Timeouts**  
+Network issues or slow responses. Consider increasing your client timeout settings or using a lighter model.
 
 ---
 
