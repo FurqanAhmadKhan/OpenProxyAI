@@ -6,7 +6,7 @@ A reverse API proxy for accessing ChatGPT models through third-party services. T
 
 > **⚠️ DISCLAIMER**: This project is strictly for educational and testing purposes only.It is not actively maintained and should not be used in production environments. The service may be discontinued at any time without notice.
 
-**Last Updated**: March 22, 2026 at 5:00 PM (Sunday)  
+**Last Updated**: March 28, 2026 at 5:00 PM (Sunday)  
 **Tested**: March 22, 2026 - See [test_results.md](test_results.md) for current model status
 
 ---
